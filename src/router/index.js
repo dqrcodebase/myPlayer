@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from '@/layout/index.vue'
+import layout from '@/layout/index.vue'
 
 Vue.use(VueRouter)
 
@@ -10,13 +10,24 @@ const routes = [
     redirect: '/home'
   },
   {
-    path: '/home',
-    component: Index
+    path: '/',
+    component: layout,
+    children: [
+      {
+        path: '/home',
+        component: () => import('@/views/home/index.vue')
+      },
+      {
+        path: '/index',
+        component: () => import('@/views/text/index.vue')
+      }
+    ]
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  mode: 'history'
 })
 
 export default router
