@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-container>
-      <el-header> <v-Header /></el-header>
+      <v-Header />
       <el-main> <v-main /></el-main>
       <el-footer>Footer</el-footer>
     </el-container>
