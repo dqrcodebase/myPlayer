@@ -38,5 +38,5 @@ module.exports = {
     </button>
      */
   jsxBracketSameLine: true,
-  singleQuote: true
+  singleQuote: true,
 }

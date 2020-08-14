@@ -1,6 +1,5 @@
 <template>
   <div>
-    afadsfas
     <v-Header />
   </div>
 </template>
