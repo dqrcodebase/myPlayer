@@ -758,7 +758,7 @@ body{
 }
 .star_activity{
 	position: absolute;
-    z-index: 100;
+    z-index: 9;
     top: 5px;
     left: 5px;
     padding: 5px;

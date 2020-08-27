@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{headerColor:headerColor,headerShow:headerShow}">
     <div class="header">
       <div class="header_left">
         <div class="logo_wrap">
@@ -82,11 +82,37 @@ export default {
   data() {
     return {
       activeIndex: '/home',
+      scrollDistance: 0,
+      headerColor: false,
+      headerShow: true,
     }
   },
+  created() {
+    // this.rollExceedPlayer()
+    this.bus.$on('rollingDistance', this.rollingDistance)
+  },
+  mounted() {},
+  beforeDestroy() {
+    document.removeEventListener('scroll', this.rollExceedPlayer)
+  },
   methods: {
-    handleClick(tab, event) {
-      console.log(tab, event)
+    rollExceedPlayer() {
+      document.addEventListener('scroll', this.handleScroll, true)
+    },
+    handleScroll() {
+      if (window.pageYOffset === 0) {
+        this.headerColor = false
+        this.headerShow = true
+      } else if (window.pageYOffset > 0 && window.pageYOffset < this.scrollDistance) {
+        this.headerColor = false
+        this.headerShow = false
+      } else if (window.pageYOffset > this.scrollDistance) {
+        this.headerColor = true
+        this.headerShow = true
+      }
+    },
+    rollingDistance(val) {
+      this.scrollDistance = val
     },
   },
 }
@@ -94,9 +120,18 @@ export default {
 <style lang="scss" scoped>
 $header_height: 60px;
 header {
-  background-color: #ffffff;
+  background-color: transparent;
   width: 100%;
   height: $header_height;
+  position: fixed;
+  z-index: 10;
+  display: none;
+  &.headerColor {
+    background-color: #ffffff;
+  }
+  &.headerShow {
+    display: block;
+  }
   a {
     text-align: center;
     font-size: 0;
@@ -112,7 +147,6 @@ header {
     height: 100%;
     margin: auto;
     justify-content: space-between;
-    background-color: #ffffff;
     .header_left {
       display: flex;
       height: 100%;
@@ -120,6 +154,7 @@ header {
       .el-menu.el-menu--horizontal {
         border: none;
         margin-left: 70px;
+        background-color: transparent;
         .el-menu-item {
           height: 32px;
           line-height: 32px;

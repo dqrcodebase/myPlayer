@@ -3,7 +3,6 @@
     <el-container>
       <v-Header />
       <el-main> <v-main /></el-main>
-      <el-footer>Footer</el-footer>
     </el-container>
   </div>
 </template>
@@ -14,7 +13,7 @@ import vMain from './components/main.vue'
 export default {
   components: {
     vHeader,
-    vMain
+    vMain,
   }
 }
 </script>

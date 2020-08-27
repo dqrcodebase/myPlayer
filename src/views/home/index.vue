@@ -1,54 +1,137 @@
 <template>
   <div class="home">
-    <div class="xq-Content-box">
-      <div class="xq-Video">
-        <div class="xq-Content-home">
-          <div class="video-content">
-            <div class="video-box">
-              <div class="videos" id="videos"></div>
-              <a style="font-size: 17px;" class="video-room" href>进入直播间</a>
-            </div>
-            <div class="video-tab">
-              <div>
-                <template v-for="(item,index) in indexLive">
-                  <div v-if="item.thumb_mini == ''" class="item-def video-tab-box"
-                  :class="[index === 0? 'check_clik' : '']" :key="index">
-                    <div class="tab-hov"></div>
-                    <img :src="item.thumb" alt="星期直播" />
-                    <div></div>
-                  </div>
-                  <div v-else class="item-def video-tab-box" :key="index"
-                  :class="[index === 0? 'check_clik' : '']">
-                    <div class="tab-hov"></div>
-                    <img :src="item.thumb_mini" alt="星期" />
-                    <div></div>
-                  </div>
-                </template>
+    <div class="content-wrap">
+      <div class="xq-Content-box">
+        <div class="xq-Video" ref="xq_video">
+          <div class="xq-Content-home">
+            <div class="video-content">
+              <div class="video-box">
+                <div class="videos" id="videos"></div>
+                <a style="font-size: 17px;" class="video-room" href>进入直播间</a>
+              </div>
+              <div class="video-tab">
+                <div>
+                  <template v-for="(item,index) in indexLive">
+                    <div
+                      v-if="item.thumb_mini == ''"
+                      class="item-def video-tab-box"
+                      :class="[index === 0? 'check_clik' : '']"
+                      :key="index"
+                    >
+                      <div class="tab-hov"></div>
+                      <img :src="item.thumb" alt="星期直播" />
+                      <div></div>
+                    </div>
+                    <div
+                      v-else
+                      class="item-def video-tab-box"
+                      :key="index"
+                      :class="[index === 0? 'check_clik' : '']"
+                    >
+                      <div class="tab-hov"></div>
+                      <img :src="item.thumb_mini" alt="星期" />
+                      <div></div>
+                    </div>
+                  </template>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="xq-Content-home xq-hot">
-      <div class="xq-content-hot">
-        <div class="hot-title">
-          <div>
-            <img src="http://140.143.31.4/public/home/images/hot.png" alt />
-            <span>推荐</span>
+      <div class="xq-Content-home xq-hot">
+        <div class="xq-content-hot">
+          <div class="hot-title">
+            <div>
+              <img src="http://140.143.31.4/public/home/images/hot.png" alt />
+              <span>推荐</span>
+            </div>
+            <div></div>
           </div>
-          <div></div>
-        </div>
-        <div>
-          <div class="hot-content">
-            <div v-for="(item,index) in recommend" class="xq-item" :key="index">
-              <div class="item-img">
-                <a :href="'/' + item.uid" target="_blank">
-                  <img :src="item.thumb" alt />
+          <div>
+            <div class="hot-content">
+              <div v-for="(item,index) in recommend" class="xq-item" :key="index">
+                <div class="item-img">
+                  <a :href="'/' + item.uid" target="_blank">
+                    <img :src="item.thumb" alt />
+                  </a>
+                  <div v-if="item.is_star == 1" class="star_activity"></div>
+                </div>
+                <a :href="'/' + item.uid">
+                  <div class="item-con">
+                    <div class="con-box">
+                      <div class="con-top">
+                        <span>{{item.title}}</span>
+                        <span>{{item.name}}</span>
+                      </div>
+                      <div class="con-bottom">
+                        <div>
+                          <i style="background-position-x: -12px;"></i>
+                          <span style="margin-left: 4px;">{{item.user_nicename}}</span>
+                        </div>
+                        <div>
+                          <i
+                            style="margin-right: 6px;
+                                            background-position-x: -35px;"
+                          ></i>
+                          <span>{{item.hot_nums}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </a>
-                <div v-if="item.is_star == 1" class="star_activity"></div>
               </div>
-              <a :href="'/' + item.uid">
+            </div>
+            <div class="clearfloat"></div>
+          </div>
+        </div>
+      </div>
+      <div class="xq-class-box">
+        <div class="xq-Content-home xq-class">
+          <div class="hot-title">
+            <div>
+              <img src="http://140.143.31.4/public/home/images/hot.png" alt />
+              <span style="color: #ffffff;">热门分类</span>
+            </div>
+          </div>
+          <div class="xq-class-content">
+            <ul class="xq-class-ul">
+              <li v-for="(item,index) in classList" :key="index">
+                <a :href="'index.php?g=&m=LiveList&a=index&cat=' + item.id">
+                  <div class="classify-box">
+                    <div class="classify-img">
+                      <img :src="item.thumb" alt />
+                    </div>
+                    <div class="classify-text">
+                      <div>{{item.name}}</div>
+                      <div>{{item.des}}</div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfloat"></div>
+        </div>
+      </div>
+      <div class="xq-Content-home xq-hot" v-for="(items,indexs) in itemArray" :key="indexs">
+        <div class="xq-content-hot">
+          <div class="hot-title">
+            <div>
+              <img :src="items.thumb" alt />
+              <span>{{items.name}}</span>
+            </div>
+            <div></div>
+          </div>
+          <div>
+            <div class="hot-content other-classify">
+              <div class="xq-item" v-for="(item,index) in items.video" :key="index">
+                <div class="item-img">
+                  <a :href="'/' + item.uid" target="_blank">
+                    <img :src="item.thumb" alt />
+                  </a>
+                </div>
+                <div v-if="item.is_star == 1" class="star_activity"></div>
                 <div class="item-con">
                   <div class="con-box">
                     <div class="con-top">
@@ -61,99 +144,35 @@
                         <span style="margin-left: 4px;">{{item.user_nicename}}</span>
                       </div>
                       <div>
-                        <i
-                          style="margin-right: 6px;
-                                            background-position-x: -35px;"
-                        ></i>
+                        <i style="margin-right: 6px;background-position-x: -35px;"></i>
                         <span>{{item.hot_nums}}</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </a>
-            </div>
-          </div>
-          <div class="clearfloat"></div>
-        </div>
-      </div>
-    </div>
-    <div class="xq-class-box">
-      <div class="xq-Content-home xq-class">
-        <div class="hot-title">
-          <div>
-            <img src="http://140.143.31.4/public/home/images/hot.png" alt />
-            <span style="color: #ffffff;">热门分类</span>
-          </div>
-        </div>
-        <div class="xq-class-content">
-          <ul class="xq-class-ul">
-            <li v-for="(item,index) in classList" :key="index">
-              <a :href="'index.php?g=&m=LiveList&a=index&cat=' + item.id">
-                <div class="classify-box">
-                  <div class="classify-img">
-                    <img :src="item.thumb" alt />
-                  </div>
-                  <div class="classify-text">
-                    <div>{{item.name}}</div>
-                    <div>{{item.des}}</div>
-                  </div>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfloat"></div>
-      </div>
-    </div>
-    <div class="xq-Content-home xq-hot" v-for="(items,indexs) in itemArray" :key="indexs">
-      <div class="xq-content-hot">
-        <div class="hot-title">
-          <div>
-            <img :src="items.thumb" alt />
-            <span>{{items.name}}</span>
-          </div>
-          <div></div>
-        </div>
-        <div>
-          <div class="hot-content other-classify">
-            <div class="xq-item" v-for="(item,index) in items.video" :key="index">
-              <div class="item-img">
-                <a :href="'/' + item.uid" target="_blank">
-                  <img :src="item.thumb" alt />
-                </a>
-              </div>
-              <div v-if="item.is_star == 1" class="star_activity"></div>
-              <div class="item-con">
-                <div class="con-box">
-                  <div class="con-top">
-                    <span>{{item.title}}</span>
-                    <span>{{item.name}}</span>
-                  </div>
-                  <div class="con-bottom">
-                    <div>
-                      <i style="background-position-x: -12px;"></i>
-                      <span style="margin-left: 4px;">{{item.user_nicename}}</span>
-                    </div>
-                    <div>
-                      <i style="margin-right: 6px;background-position-x: -35px;"></i>
-                      <span>{{item.hot_nums}}</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
+            <div class="clearfloat"></div>
           </div>
-          <div class="clearfloat"></div>
         </div>
       </div>
     </div>
+    <el-footer>
+      <v-Footer />
+    </el-footer>
   </div>
 </template>
 <script>
+import vFooter from '@/layout/components/footer.vue'
+
 export default {
   neme: 'home',
+  components: {
+    vFooter,
+  },
   data() {
     return {
+      // 顶部视频播放信息
       indexLive: [
         {
           anyway: '1',
@@ -390,6 +409,7 @@ export default {
           wy_cid: '',
         },
       ],
+      // 推荐位
       recommend: [
         {
           avatar: 'http://img.xingqitv.cn/20200520/5ec4ff38b5384.jpg',
@@ -426,6 +446,7 @@ export default {
           user_nicename: '手机用户0012',
         },
       ],
+      // 热门分类
       classList: [
         {
           des: '',
@@ -533,6 +554,7 @@ export default {
           thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
         },
       ],
+      // 其他分类
       itemArray: [
         {
           des: '',
@@ -603,7 +625,13 @@ export default {
           ],
         },
       ],
+      // 头部样式改变滚动条应滚动的距离
+      rollingDistance: 0
     }
+  },
+  mounted() {
+    this.rollingDistance = this.$refs.xq_video.offsetTop + this.$refs.xq_video.offsetHeight
+    this.bus.$emit('rollingDistance', this.rollingDistance)
   },
 }
 </script>
