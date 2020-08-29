@@ -1,6 +1,6 @@
 <template>
   <div style="height:1000px">
-    index
+    text
   </div>
 </template>
 <script>

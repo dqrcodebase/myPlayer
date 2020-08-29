@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="layout">
     <el-container>
       <v-Header />
       <el-main> <v-main /></el-main>
-      <el-footer>Footer</el-footer>
     </el-container>
   </div>
 </template>
@@ -14,7 +13,13 @@ import vMain from './components/main.vue'
 export default {
   components: {
     vHeader,
-    vMain
+    vMain,
   }
 }
 </script>
+<style lang="css">
+.layout .el-main{
+  padding:0;
+  overflow: initial;
+}
+</style>
