@@ -18,6 +18,7 @@ module.exports = {
     'semi': 0,// 末尾是否添加分号
     "comma-dangle": [2, "never"], // 末尾是否添加逗号
     "arrow-parens":[1,"as-needed"], // 箭头函数的参数是否加括号
+    "space-before-function-paren": ["error", "always"], // 函数前面加空格 
   },
   overrides: [
     {
