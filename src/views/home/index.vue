@@ -2,34 +2,36 @@
   <div class="home">
     <div class="content-wrap">
       <div class="xq-Content-box">
-        <div class="xq-Video" ref="xq_video">
+        <div class="xq-Video"
+             ref="xq_video">
           <div class="xq-Content-home">
             <div class="video-content">
               <div class="video-box">
-                <div class="videos" id="videos"></div>
-                <a style="font-size: 17px;" class="video-room" href>进入直播间</a>
+                <div class="videos"
+                     id="videos"></div>
+                <a style="font-size: 17px;"
+                   class="video-room"
+                   href>进入直播间</a>
               </div>
               <div class="video-tab">
                 <div>
                   <template v-for="(item,index) in indexLive">
-                    <div
-                      v-if="item.thumb_mini == ''"
-                      class="item-def video-tab-box"
-                      :class="[index === 0? 'check_clik' : '']"
-                      :key="index"
-                    >
+                    <div v-if="item.thumb_mini == ''"
+                         class="item-def video-tab-box"
+                         :class="[index === 0? 'check_clik' : '']"
+                         :key="index">
                       <div class="tab-hov"></div>
-                      <img :src="item.thumb" alt="星期直播" />
+                      <img :src="item.thumb"
+                           alt="星期直播" />
                       <div></div>
                     </div>
-                    <div
-                      v-else
-                      class="item-def video-tab-box"
-                      :key="index"
-                      :class="[index === 0? 'check_clik' : '']"
-                    >
+                    <div v-else
+                         class="item-def video-tab-box"
+                         :key="index"
+                         :class="[index === 0? 'check_clik' : '']">
                       <div class="tab-hov"></div>
-                      <img :src="item.thumb_mini" alt="星期" />
+                      <img :src="item.thumb_mini"
+                           alt="星期" />
                       <div></div>
                     </div>
                   </template>
@@ -43,19 +45,25 @@
         <div class="xq-content-hot">
           <div class="hot-title">
             <div>
-              <img src="http://140.143.31.4/public/home/images/hot.png" alt />
+              <img src="http://140.143.31.4/public/home/images/hot.png"
+                   alt />
               <span>推荐</span>
             </div>
             <div></div>
           </div>
           <div>
             <div class="hot-content">
-              <div v-for="(item,index) in recommend" class="xq-item" :key="index">
+              <div v-for="(item,index) in recommend"
+                   class="xq-item"
+                   :key="index">
                 <div class="item-img">
-                  <a :href="'/' + item.uid" target="_blank">
-                    <img :src="item.thumb" alt />
+                  <a :href="'/' + item.uid"
+                     target="_blank">
+                    <img :src="item.thumb"
+                         alt />
                   </a>
-                  <div v-if="item.is_star == 1" class="star_activity"></div>
+                  <div v-if="item.is_star == 1"
+                       class="star_activity"></div>
                 </div>
                 <a :href="'/' + item.uid">
                   <div class="item-con">
@@ -70,10 +78,8 @@
                           <span style="margin-left: 4px;">{{item.user_nicename}}</span>
                         </div>
                         <div>
-                          <i
-                            style="margin-right: 6px;
-                                            background-position-x: -35px;"
-                          ></i>
+                          <i style="margin-right: 6px;
+                                            background-position-x: -35px;"></i>
                           <span>{{item.hot_nums}}</span>
                         </div>
                       </div>
@@ -90,17 +96,20 @@
         <div class="xq-Content-home xq-class">
           <div class="hot-title">
             <div>
-              <img src="http://140.143.31.4/public/home/images/hot.png" alt />
+              <img src="http://140.143.31.4/public/home/images/hot.png"
+                   alt />
               <span style="color: #ffffff;">热门分类</span>
             </div>
           </div>
           <div class="xq-class-content">
             <ul class="xq-class-ul">
-              <li v-for="(item,index) in classList" :key="index">
+              <li v-for="(item,index) in classList"
+                  :key="index">
                 <a :href="'index.php?g=&m=LiveList&a=index&cat=' + item.id">
                   <div class="classify-box">
                     <div class="classify-img">
-                      <img :src="item.thumb" alt />
+                      <img :src="item.thumb"
+                           alt />
                     </div>
                     <div class="classify-text">
                       <div>{{item.name}}</div>
@@ -114,24 +123,32 @@
           <div class="clearfloat"></div>
         </div>
       </div>
-      <div class="xq-Content-home xq-hot" v-for="(items,indexs) in itemArray" :key="indexs">
+      <div class="xq-Content-home xq-hot"
+           v-for="(items,indexs) in itemArray"
+           :key="indexs">
         <div class="xq-content-hot">
           <div class="hot-title">
             <div>
-              <img :src="items.thumb" alt />
+              <img :src="items.thumb"
+                   alt />
               <span>{{items.name}}</span>
             </div>
             <div></div>
           </div>
           <div>
             <div class="hot-content other-classify">
-              <div class="xq-item" v-for="(item,index) in items.video" :key="index">
+              <div class="xq-item"
+                   v-for="(item,index) in items.video"
+                   :key="index">
                 <div class="item-img">
-                  <a :href="'/' + item.uid" target="_blank">
-                    <img :src="item.thumb" alt />
+                  <a :href="'/' + item.uid"
+                     target="_blank">
+                    <img :src="item.thumb"
+                         alt />
                   </a>
                 </div>
-                <div v-if="item.is_star == 1" class="star_activity"></div>
+                <div v-if="item.is_star == 1"
+                     class="star_activity"></div>
                 <div class="item-con">
                   <div class="con-box">
                     <div class="con-top">
@@ -157,20 +174,33 @@
         </div>
       </div>
     </div>
-    <el-footer>
+    <el-footer style="padding:0;height:auto">
       <v-Footer />
     </el-footer>
   </div>
 </template>
 <script>
 import vFooter from '@/layout/components/footer.vue'
-
 export default {
-  neme: 'home',
+  name: 'home',
   components: {
     vFooter,
   },
-  data() {
+  beforeRouteEnter (to, from, next) {
+    // 在渲染该组件的对应路由被 confirm 前调用
+    // 不！能！获取组件实例 `this`
+    // 因为当守卫执行前，组件实例还没被创建
+    next(vm => {
+      vm.$store.commit('clucencyHeader', true)
+    })
+  },
+  beforeRouteLeave (to, from, next) {
+    // 导航离开该组件的对应路由时调用
+    // 可以访问组件实例 `this`
+    this.$store.commit('clucencyHeader', false)
+    next()
+  },
+  data () {
     return {
       // 顶部视频播放信息
       indexLive: [
@@ -629,9 +659,35 @@ export default {
       rollingDistance: 0
     }
   },
-  mounted() {
+  created () {
+    this.rollExceedPlayer()
+  },
+  mounted () {
     this.rollingDistance = this.$refs.xq_video.offsetTop + this.$refs.xq_video.offsetHeight
     this.bus.$emit('rollingDistance', this.rollingDistance)
+  },
+  beforeDestroy () {
+    document.removeEventListener('scroll', this.rollExceedPlayer)
+  },
+  methods: {
+    rollExceedPlayer () {
+      document.addEventListener('scroll', this.handleScroll, true)
+    },
+    handleScroll () {
+      if (window.pageYOffset === 0) {
+        this.headerColor = false
+        this.headerShow = true
+      } else if (window.pageYOffset > 0 && window.pageYOffset < this.scrollDistance) {
+        this.headerColor = false
+        this.headerShow = false
+      } else if (window.pageYOffset > this.scrollDistance) {
+        this.headerColor = true
+        this.headerShow = true
+      }
+    },
+    rollingDistance (val) {
+      this.scrollDistance = val
+    },
   },
 }
 </script>
