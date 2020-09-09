@@ -1,5 +1,5 @@
 <template>
-  <header :class="{headerColor:this.$store.state.headerClass,headerShow:headerShow}">
+  <header :class="{headerColor:this.$store.state.headerColor,headerShow:this.$store.state.headerShow}">
     <div class="header">
       <div class="header_left">
         <div class="logo_wrap">
@@ -95,17 +95,19 @@ export default {
     return {
       activeIndex: '/home',
       scrollDistance: 0,
-      headerColor: this.$store.state.headerClass,
-      headerShow: true,
+      headerColor: this.$store.state.headerColor,
+      headerShow: this.$store.state.headerShow,
       searchiInput: ''
     }
   },
   created () {
-    console.log(this.$store.state.headerClass)
-    this.rollExceedPlayer()
     this.bus.$on('rollingDistance', this.rollingDistance)
   },
-  mounted () {},
+  methods : {
+    rollingDistance(val){
+      console.log(val)
+    }
+  },
 
   
 }

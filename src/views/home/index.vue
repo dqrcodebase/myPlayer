@@ -191,13 +191,13 @@ export default {
     // 不！能！获取组件实例 `this`
     // 因为当守卫执行前，组件实例还没被创建
     next(vm => {
-      vm.$store.commit('clucencyHeader', true)
+      vm.$store.commit('clucencyHeader', { colorBoole: true, showBoole: true })
     })
   },
   beforeRouteLeave (to, from, next) {
     // 导航离开该组件的对应路由时调用
     // 可以访问组件实例 `this`
-    this.$store.commit('clucencyHeader', false)
+    this.$store.commit('clucencyHeader', { colorBoole: false, showBoole: true })
     next()
   },
   data () {
@@ -664,7 +664,7 @@ export default {
   },
   mounted () {
     this.rollingDistance = this.$refs.xq_video.offsetTop + this.$refs.xq_video.offsetHeight
-    this.bus.$emit('rollingDistance', this.rollingDistance)
+    // this.bus.$emit('rollingDistance', this.rollingDistance)
   },
   beforeDestroy () {
     document.removeEventListener('scroll', this.rollExceedPlayer)
@@ -674,18 +674,17 @@ export default {
       document.addEventListener('scroll', this.handleScroll, true)
     },
     handleScroll () {
+      console.log(this.rollingDistance)
       if (window.pageYOffset === 0) {
-        this.headerColor = false
-        this.headerShow = true
-      } else if (window.pageYOffset > 0 && window.pageYOffset < this.scrollDistance) {
-        this.headerColor = false
-        this.headerShow = false
-      } else if (window.pageYOffset > this.scrollDistance) {
-        this.headerColor = true
-        this.headerShow = true
+        this.$store.commit('clucencyHeader', { colorBoole: true, showBoole: true })
+      } else if (window.pageYOffset > 0 && window.pageYOffset < this.rollingDistance) {
+        this.$store.commit('clucencyHeader', { colorBoole: false, showBoole: false })
+      } else if (window.pageYOffset > this.rollingDistance) {
+        this.$store.commit('clucencyHeader', { colorBoole: false, showBoole: true })
       }
     },
-    rollingDistance (val) {
+    rollingDistanceHandle (val) {
+      console.log(val)
       this.scrollDistance = val
     },
   },
