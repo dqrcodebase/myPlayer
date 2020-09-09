@@ -93,7 +93,7 @@
 export default {
   data () {
     return {
-      activeIndex: '/home',
+      activeIndex: this.$route.path,
       scrollDistance: 0,
       headerColor: this.$store.state.headerColor,
       headerShow: this.$store.state.headerShow,
@@ -105,7 +105,6 @@ export default {
   },
   methods : {
     rollingDistance(val){
-      console.log(val)
     }
   },
 

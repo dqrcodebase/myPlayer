@@ -1,8 +1,14 @@
 <template>
-  <div>33333</div>
+  <div>
+    <v-navigation />
+  </div>
 </template>
 <script>
+import vNavigation from '@/layout/components/navigation.vue'
 export default {
-  name:'liveList'
+  name:'liveList',
+  components:{
+    vNavigation
+  }
 }
 </script>

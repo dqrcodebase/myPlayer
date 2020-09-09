@@ -19,7 +19,8 @@
                     <div v-if="item.thumb_mini == ''"
                          class="item-def video-tab-box"
                          :class="[index === 0? 'check_clik' : '']"
-                         :key="index">
+                         :key="index"
+                         @click="cutCarouselHandle(index)">
                       <div class="tab-hov"></div>
                       <img :src="item.thumb"
                            alt="星期直播" />
@@ -28,7 +29,8 @@
                     <div v-else
                          class="item-def video-tab-box"
                          :key="index"
-                         :class="[index === 0? 'check_clik' : '']">
+                         @click="cutCarouselHandle(index)"
+                         :class="[index === carouselIndex ? 'check_clik' : '']">
                       <div class="tab-hov"></div>
                       <img :src="item.thumb_mini"
                            alt="星期" />
@@ -656,7 +658,8 @@ export default {
         },
       ],
       // 头部样式改变滚动条应滚动的距离
-      rollingDistance: 0
+      rollingDistance: 0,
+      carouselIndex: 0
     }
   },
   created () {
@@ -674,7 +677,6 @@ export default {
       document.addEventListener('scroll', this.handleScroll, true)
     },
     handleScroll () {
-      console.log(this.rollingDistance)
       if (window.pageYOffset === 0) {
         this.$store.commit('clucencyHeader', { colorBoole: true, showBoole: true })
       } else if (window.pageYOffset > 0 && window.pageYOffset < this.rollingDistance) {
@@ -687,6 +689,9 @@ export default {
       console.log(val)
       this.scrollDistance = val
     },
+    cutCarouselHandle (index) {
+      this.carouselIndex = index
+    }
   },
 }
 </script>
