@@ -18,8 +18,16 @@ const routes = [
         component: () => import('@/views/home/index.vue')
       },
       {
-        path: '/index',
-        component: () => import('@/views/text/index.vue')
+        path: '/liveList',
+        component: () => import('@/views/liveList/index.vue')
+      },
+      {
+        path: '/category',
+        component: () => import('@/views/category/index.vue')
+      },
+      {
+        path: '/list',
+        component: () => import('@/views/list/index.vue')
       }
     ]
   }
