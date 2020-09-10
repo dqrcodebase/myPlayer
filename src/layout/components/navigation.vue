@@ -4,14 +4,14 @@
       <div class="aside_main_expand">
         <ul class="aside-nav">
           <el-row class="tac">
-            <el-col :span="12">
+            <el-col :span="24">
               <el-menu
                 class="el-menu-demo"
                 @open="handleOpen"
                 @close="handleClose"
                 background-color="transparent"
                 text-color="#999999"
-                active-text-color="#ffffff"
+                active-text-color="#ffb93b"
                 :default-active="navigationIndex"
                 mode="vertical"
                 router
@@ -65,9 +65,12 @@ export default {
   name: 'navigation',
   data() {
     return {
-      navigationIndex: this.$router.path,
+      navigationIndex: this.$route.path,
     }
   },
+  created() {
+    console.log(this.$route)
+  }
 }
 </script>
 <style lang="css" scoped>

@@ -75,10 +75,16 @@ body{
 	color: #ffb93b;
 	background-color: #26272e;
 }
-.aside_skip:hover .aside_icon {
+.el-menu-item:hover .aside_icon {
 	background-image: url("../images/navigation/aside_focus.png");
 }
-.basicdata-active .aside_icon{
+.el-menu-item:hover strong{
+  color: #ffb93b;
+}
+.el-menu-item.is-active{
+  background-color: #26272e !important;
+}
+.is-active .aside_icon {
 	background-image: url("../images/navigation/aside_focus.png");
 }
 .aside_skip.basicdata-active{
@@ -178,4 +184,7 @@ body{
 }
 strong{
 	font-size: 16px;
+}
+.el-menu{
+  border:none
 }
