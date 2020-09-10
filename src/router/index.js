@@ -18,12 +18,18 @@ const routes = [
         component: () => import('@/views/home/index.vue')
       },
       {
-        path: '/liveList',
-        component: () => import('@/views/liveList/index.vue')
-      },
-      {
-        path: '/category',
-        component: () => import('@/views/category/index.vue')
+        path: '/layoutAsiden',
+        component: () => import('@/layout/components/layoutAsiden.vue'),
+        children: [
+          {
+            path: '/category',
+            component: () => import('@/views/category/index.vue')
+          },
+          {
+            path: '/liveList',
+            component: () => import('@/views/liveList/index.vue'),
+          },
+        ]
       },
       {
         path: '/list',

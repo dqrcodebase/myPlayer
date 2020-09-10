@@ -10,7 +10,8 @@
 }
 li, ul {
   list-style: none;
-    text-transform: capitalize;
+  text-transform: capitalize;
+  padding:0
 }
 a{
     text-decoration: none;

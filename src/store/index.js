@@ -6,11 +6,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    headerColor: true,
+    headerColor: false,
     headerShow: true
   },
   mutations: {
     clucencyHeader(state, obj) {
+      console.log(obj);
       state.headerColor = obj.colorBoole
       state.headerShow = obj.showBoole
     },

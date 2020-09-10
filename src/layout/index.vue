@@ -19,7 +19,7 @@ export default {
 </script>
 <style lang="css">
 .layout .el-main{
-  padding:0;
+  padding:0 ;
   overflow: initial;
 }
 </style>
