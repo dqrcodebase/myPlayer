@@ -7,9 +7,10 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     open: true,
+    hot:true,
     overlay: {
       warnings: false,
       errors: true
-    }
-  },
+    },
+  }
 }
