@@ -81,7 +81,7 @@ body{
 .el-menu-item:hover strong{
   color: #ffb93b;
 }
-.el-menu-item.is-active{
+.broadside .el-menu-item.is-active{
   background-color: #26272e !important;
 }
 .is-active .aside_icon {

@@ -91,7 +91,6 @@ export default {
     }
   },
   created() {
-    console.log(this.$store.state);
     this.bus.$on('rollingDistance', this.rollingDistance)
   },
   methods: {

@@ -7,8 +7,6 @@
             <el-col :span="24">
               <el-menu
                 class="el-menu-demo"
-                @open="handleOpen"
-                @close="handleClose"
                 background-color="transparent"
                 text-color="#999999"
                 active-text-color="#ffb93b"
@@ -35,11 +33,10 @@
         <div class="aside_classify_live">
           <div class="aside_title">直播分类</div>
           <div class="aside_classify_wrap">
-            <volist name="liveclasses" id="item">
-              <a href="/index.php?m=LiveList&a=index&cat={$item.id}">
-                <div class="aside_item is-active">{$item.name}</div>
-              </a>
-            </volist>
+            <a v-for="(item,index) in liveclasses"
+             href="/index.php?m=LiveList&a=index&cat={$item.id}" :key="index">
+              <div class="aside_item is-active">{{item.name}}</div>
+            </a>
           </div>
         </div>
       </div>
@@ -61,16 +58,47 @@
   </div>
 </template>
 <script>
+import {categoryList} from '@/api/category'
 export default {
   name: 'navigation',
   data() {
     return {
       navigationIndex: this.$route.path,
+      liveclasses: [
+        {
+          des: '星秀精彩直播内容全天不间断直播',
+          id: '22',
+          name: '星旗秀场',
+          orderno: '1',
+          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
+        },
+        {
+          des: '颜值秀',
+          id: '18',
+          name: '颜值',
+          orderno: '2',
+          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
+        },
+        {
+          des: '且随疾风前行，身后亦需留心',
+          id: '12',
+          name: '英雄联盟',
+          orderno: '3',
+          thumb: 'http://img.xingqitv.cn/20200519/5ec375621ec42.png',
+        },
+        {
+          des: '大吉大利，今晚吃鸡',
+          id: '10',
+          name: '绝地求生',
+          orderno: '4',
+          thumb: 'http://img.xingqitv.cn/20200519/5ec375c32a72c.png',
+        },
+      ],
     }
   },
   created() {
-    console.log(this.$route)
-  }
+    categoryList()
+  },
 }
 </script>
 <style lang="css" scoped>
