@@ -22,7 +22,7 @@
           <ul>
             <li class="downLoad">
               <i></i>
-              <span class="nav_text">下载</span>
+              <span class="nav_text">{{this.$route.path}}</span>
               <div class="header_down">
                 <img src="@/static/images/code2.png" alt />
                 <p style="text-align: center;">扫描二维码</p>

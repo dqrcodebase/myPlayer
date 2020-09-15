@@ -1,9 +1,8 @@
 import request from '@/utils/request'
 
-export function categoryList(query) {
+export function categoryList() {
     return request({
-        url: '/vue-element-admin/article/list',
-        method: 'get',
-        params: query
+        url: 'api/Category/sendHot',
+        method: 'get'
     })
 }
