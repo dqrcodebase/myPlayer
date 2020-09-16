@@ -14,7 +14,7 @@ module.exports = {
     },
     proxy: {
       '/api': {
-        target: 'http://www.qr.com/',
+        target: 'http://www.dqrvue.com/',
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''

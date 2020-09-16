@@ -183,6 +183,8 @@
 </template>
 <script>
 import vFooter from '@/layout/components/footer.vue'
+import { indexList } from '@/api/index.js'
+
 export default {
   name: 'home',
   components: {
@@ -442,221 +444,11 @@ export default {
         },
       ],
       // 推荐位
-      recommend: [
-        {
-          avatar: 'http://img.xingqitv.cn/20200520/5ec4ff38b5384.jpg',
-          avatar_thumb:
-            'http://img.xingqitv.cn/20200520/5ec4ff38b5384.jpg?imageView2/2/w/200/h/200',
-          city: '好像在火星',
-          hot_nums: '0',
-          is_star: '1',
-          islive: '1',
-          nums: '0',
-          signature: '水水水水水',
-          stream: '45458_1597224523',
-          thumb:
-            'http://img.xingqitv.cn/20200713110949_49281fb9f7919b8aa4e1ee69bd85ddc6?imageView2/2/w/600/h/600',
-          title: '明年',
-          type: '0',
-          uid: '45458',
-          user_nicename: '121212',
-        },
-        {
-          avatar: 'http://img.xingqitv.cn/20200624/5ef2fe477f712.png',
-          avatar_thumb: 'http://img.xingqitv.cn/20200624/5ef2fe477f712.png',
-          city: '好像在火星',
-          hot_nums: '0',
-          is_star: null,
-          islive: '1',
-          nums: '0',
-          signature: '这家伙很懒，什么都没留下',
-          stream: '45555_1596617674',
-          thumb: 'http://img.xingqitv.cn/20200624/5ef2fe477f712.png',
-          title: '',
-          type: '0',
-          uid: '45555',
-          user_nicename: '手机用户0012',
-        },
-      ],
+      recommend: [],
       // 热门分类
-      classList: [
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-        },
-        {
-          des: '颜值秀',
-          id: '18',
-          name: '颜值',
-          orderno: '2',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
-        },
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-        },
-        {
-          des: '颜值秀',
-          id: '18',
-          name: '颜值',
-          orderno: '2',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
-        },
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-        },
-        {
-          des: '颜值秀',
-          id: '18',
-          name: '颜值',
-          orderno: '2',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
-        },
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-        },
-        {
-          des: '颜值秀',
-          id: '18',
-          name: '颜值',
-          orderno: '2',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
-        },
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-        },
-        {
-          des: '颜值秀',
-          id: '18',
-          name: '颜值',
-          orderno: '2',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec33b412e211.png',
-        },
-      ],
+      classList: [],
       // 其他分类
-      itemArray: [
-        {
-          des: '',
-          id: '30',
-          name: 'LOL云顶之弈',
-          orderno: '0',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec3784411d06.png',
-          video: [
-            {
-              avatar: 'http://img.xingqitv.cn/20200520/5ec4ff38b5384.jpg',
-              avatar_thumb:
-                'http://img.xingqitv.cn/20200520/5ec4ff38b5384.jpg?imageView2/2/w/200/h/200',
-              city: '好像在火星',
-              hot_nums: '0',
-              is_star: '1',
-              islive: '1',
-              nums: '0',
-              signature: '水水水水水',
-              stream: '45458_1597224523',
-              thumb:
-                'http://img.xingqitv.cn/20200713110949_49281fb9f7919b8aa4e1ee69bd85ddc6?imageView2/2/w/600/h/600',
-              title: '明年',
-              type: '0',
-              uid: '45458',
-              user_nicename: '121212',
-            },
-            {
-              avatar: 'http://img.xingqitv.cn/20200513/5ebba8380c563.jpg',
-              avatar_thumb: 'http://img.xingqitv.cn/20200513/5ebba8380c563.jpg',
-              city: '好像在火星',
-              hot_nums: '0',
-              is_star: null,
-              islive: '1',
-              nums: '0',
-              signature: '',
-              stream: '45473_1596618519',
-              thumb: 'http://img.xingqitv.cn/20200513/5ebba8380c563.jpg',
-              title: '',
-              type: '0',
-              uid: '45473',
-              user_nicename: '测试701',
-            },
-          ],
-        },
-        {
-          des: '星秀精彩直播内容全天不间断直播',
-          id: '22',
-          name: '星旗颜值秀场',
-          orderno: '1',
-          thumb: 'http://img.xingqitv.cn/20200519/5ec374ffeb715.png',
-          video: [
-            {
-              avatar: 'http://img.xingqitv.cn/20200624/5ef303460b957.jpg',
-              avatar_thumb: 'http://img.xingqitv.cn/20200624/5ef303460b957.jpg',
-              city: '好像在火星',
-              hot_nums: '0',
-              is_star: null,
-              islive: '1',
-              nums: '0',
-              signature: '',
-              stream: '45537_1596617549',
-              thumb: 'http://img.xingqitv.cn/20200624/5ef303460b957.jpg',
-              title: '',
-              type: '0',
-              uid: '45537',
-              user_nicename: 'a010',
-            },
-          ],
-        },
-      ],
+      itemArray: [],
       // 头部样式改变滚动条应滚动的距离
       rollingDistance: 0,
       carouselIndex: 0
@@ -664,6 +456,12 @@ export default {
   },
   created () {
     this.rollExceedPlayer()
+    indexList().then(data => {
+      this.itemArray = data.info.itemArray
+      this.classList = data.info.classList
+      // eslint-disable-next-line prefer-destructuring
+      this.recommend = data.info.array[0]
+    })
   },
   mounted () {
     this.rollingDistance = this.$refs.xq_video.offsetTop + this.$refs.xq_video.offsetHeight

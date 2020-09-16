@@ -23,7 +23,6 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   response => {
-    console.log(this)
     if (response.status === 200) {
       return response.data;
     }else{
