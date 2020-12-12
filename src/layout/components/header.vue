@@ -101,7 +101,11 @@ export default {
     }
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   created() {
+=======
+  created () {
+>>>>>>> parent of 3fce903... 分类页封装
 =======
   created () {
 >>>>>>> parent of 3fce903... 分类页封装

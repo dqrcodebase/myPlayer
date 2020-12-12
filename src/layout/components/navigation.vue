@@ -1,5 +1,6 @@
 <template>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <div>
     <input type="checkbox" name="aside_state" id="aside_state" class="xq_specialStateInput" />
     <aside class="broadside">
@@ -46,6 +47,8 @@
               <div class="aside_item">王者荣耀王者荣耀王者荣耀王者荣耀</div>
             </a>
 =======
+=======
+>>>>>>> parent of 3fce903... 分类页封装
     <div>
       <aside class="broadside">
           <div class="aside_main_expand">
@@ -79,6 +82,9 @@
               </div>
           </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 3fce903... 分类页封装
           <div class="aside_main_shrink">
               <a href="/" class="aside_skip">
                 <i class="aside_icon aside_attention"></i>
@@ -91,6 +97,7 @@
                 <i class="aside_icon aside_ranking"></i>
                 <strong>排行榜</strong>
               </a>
+<<<<<<< HEAD
 >>>>>>> parent of 3fce903... 分类页封装
           </div>
       </aside>
@@ -118,10 +125,16 @@
     </aside>
   </div>
 >>>>>>> 93fb54c74b93072a785dbcfb82e963c45ddf33f6
+=======
+          </div>
+      </aside>
+    </div>
+>>>>>>> parent of 3fce903... 分类页封装
 </template>
 <script>
 import { categoryList } from '@/api/category'
 export default {
+<<<<<<< HEAD
 <<<<<<< HEAD
   name: 'navigation',
   data() {
@@ -165,6 +178,9 @@ export default {
       console.log(data)
     })
   },
+=======
+  name: 'navigation'
+>>>>>>> parent of 3fce903... 分类页封装
 =======
   name: 'navigation'
 >>>>>>> parent of 3fce903... 分类页封装
