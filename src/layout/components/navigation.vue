@@ -1,42 +1,49 @@
 <template>
 <<<<<<< HEAD
   <div>
+    <input type="checkbox" name="aside_state" id="aside_state" class="xq_specialStateInput" />
     <aside class="broadside">
       <div class="aside_main_expand">
-        <ul class="aside-nav">
-          <el-row class="tac">
-            <el-col :span="24">
-              <el-menu
-                class="el-menu-demo"
-                background-color="transparent"
-                text-color="#999999"
-                active-text-color="#ffb93b"
-                :default-active="navigationIndex"
-                mode="vertical"
-                router
-              >
-                <el-menu-item index="/home">
-                  <i class="aside_icon aside_attention"></i>
-                  <strong>我的关注</strong>
-                </el-menu-item>
-                <el-menu-item index="/liveList">
-                  <i class="aside_icon aside_live"></i>
-                  <strong>全部直播</strong>
-                </el-menu-item>
-                <el-menu-item index="/list">
-                  <i class="aside_icon aside_ranking"></i>
-                  <strong>榜单</strong>
-                </el-menu-item>
-              </el-menu>
-            </el-col>
-          </el-row>
-        </ul>
+          <el-menu :default-active="activeIndex" class="el-menu-demo aside-nav" mode="vertical" router>
+            <el-menu-item index="/home">
+              <i class="aside_icon aside_attention"></i>
+              <span>我的关注</span>
+            </el-menu-item>
+            <el-menu-item index="/liveList">
+              <i class="aside_icon aside_live"></i>
+              <span>全部直播</span>
+            </el-menu-item>
+            <el-menu-item index="/list">
+              <i class="aside_icon aside_ranking"></i>
+              <span>排行榜</span>
+            </el-menu-item>
+          </el-menu>
         <div class="aside_classify_live">
           <div class="aside_title">直播分类</div>
           <div class="aside_classify_wrap">
-            <a v-for="(item,index) in liveclasses"
-             href="/index.php?m=LiveList&a=index&cat={$item.id}" :key="index">
-              <div class="aside_item is-active">{{item.name}}</div>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀</div>
+            </a>
+            <a href>
+              <div class="aside_item">王者荣耀王者荣耀王者荣耀王者荣耀</div>
             </a>
 =======
     <div>
@@ -71,6 +78,7 @@
                   </div>
               </div>
           </div>
+<<<<<<< HEAD
           <div class="aside_main_shrink">
               <a href="/" class="aside_skip">
                 <i class="aside_icon aside_attention"></i>
@@ -87,9 +95,32 @@
           </div>
       </aside>
     </div>
+=======
+        </div>
+      </div>
+      <div class="aside_main_shrink">
+        <a href="/" class="aside_skip">
+          <i class="aside_icon aside_attention"></i>
+          <strong>关注</strong>
+        </a>
+        <a href="/" class="aside_skip">
+          <i class="aside_icon aside_live"></i>
+          <strong>直播</strong>
+        </a>
+        <a href="/" class="aside_skip">
+          <i class="aside_icon aside_ranking"></i>
+          <strong>排行榜</strong>
+        </a>
+      </div>
+      <label class="aside_toggle" for="aside_state">
+        <i></i>
+      </label>
+    </aside>
+  </div>
+>>>>>>> 93fb54c74b93072a785dbcfb82e963c45ddf33f6
 </template>
 <script>
-import {categoryList} from '@/api/category'
+import { categoryList } from '@/api/category'
 export default {
 <<<<<<< HEAD
   name: 'navigation',
@@ -126,10 +157,13 @@ export default {
           thumb: 'http://img.xingqitv.cn/20200519/5ec375c32a72c.png',
         },
       ],
+      activeIndex:'/liveList'
     }
   },
   created() {
-    categoryList()
+    categoryList().then(data => {
+      console.log(data)
+    })
   },
 =======
   name: 'navigation'

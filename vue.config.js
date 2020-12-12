@@ -7,10 +7,20 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     open: true,
-    hot:true,
+    hot: true,
     overlay: {
       warnings: false,
       errors: true
     },
+    proxy: {
+      '/api': {
+        target: 'http://www.dqrvue.com/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+
   }
 }

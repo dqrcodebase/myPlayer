@@ -26,7 +26,7 @@
           <ul>
             <li class="downLoad">
               <i></i>
-              <span class="nav_text">下载</span>
+              <span class="nav_text">{{this.$route.path}}</span>
               <div class="header_down">
                 <img src="@/static/images/code2.png"
                      alt />
@@ -251,7 +251,7 @@ header {
                 padding: 10px 0;
                 background-color: #ffffff;
                 left: calc(50% - 50px);
-                box-shadow: 0px 4px 12px #666666;
+                box-shadow: 0 5px 10px 2px #f1f1f1;
                 width: 126px;
                 cursor: default;
                 p {
