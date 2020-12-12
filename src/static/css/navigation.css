@@ -41,9 +41,6 @@ body{
 	opacity: 0.2;
 	display: block;
 }
-.aside-nav ul,.aside-nav li{
-	background-color: transparent;
-}
 .aside_skip {
 	display: block;
 	color: #999999;

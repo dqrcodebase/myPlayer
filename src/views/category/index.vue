@@ -1,5 +1,7 @@
 <template>
-   <div>3333</div>
+    <div>
+        <vNavigation />
+    </div>
 </template>
 <script>
 import vNavigation from '@/layout/components/navigation.vue'
